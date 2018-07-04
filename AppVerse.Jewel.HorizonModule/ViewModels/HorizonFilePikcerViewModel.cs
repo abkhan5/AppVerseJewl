@@ -25,11 +25,11 @@ namespace AppVerse.Jewel.HorizonModule.ViewModels
             _horizonDataProvider = horizonDataProvider;
             HorizonFilePickerCommand = new DelegateCommand(ExecuteFilePickerCommand, CanExecuteFilePickerCommand);
             LoadFilesCommand = new DelegateCommand(ExecuteLoadFilesCommand, CanExecuteLoadFilesCommand);
-            SelectedFiles = new ObservableCollection<DepthFile>();
+            SelectedFiles = new ObservableCollection<DepthFileViewModel>();
             _isFileLoading = false;
         }
 
-        public ObservableCollection<DepthFile> SelectedFiles { get; }
+        public ObservableCollection<DepthFileViewModel> SelectedFiles { get; }
 
         public DelegateCommand HorizonFilePickerCommand { get; set; }
         public DelegateCommand LoadFilesCommand { get; set; }
@@ -43,7 +43,7 @@ namespace AppVerse.Jewel.HorizonModule.ViewModels
         {
             _isFileLoading = true;
             foreach (var selectedFile in SelectedFiles)
-                await _horizonDataProvider.GetDepth(selectedFile);
+                await _horizonDataProvider.GetDepth(selectedFile.Model);
 
             _isFileLoading = false;
         }
@@ -58,7 +58,11 @@ namespace AppVerse.Jewel.HorizonModule.ViewModels
             SelectedFiles.Clear();
             var fileNames = _filePicker.GetFilePaths(true, FileFormat.Csv, FileFormat.Excel);
             foreach (var fileName in fileNames)
-                SelectedFiles.Add(fileName);
+            {
+                var depthVm = _unityContainer.Resolve<DepthFileViewModel>();
+                depthVm.Model = fileName;
+                SelectedFiles.Add(depthVm);
+            }
         }
 
         protected override void Initialize()
