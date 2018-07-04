@@ -28,7 +28,6 @@
         <mah:MetroProgressBar   Value="{Binding Progress, Mode=TwoWay}"  Minimum="0"  Maximum="{Binding Max}" />
     </DataTemplate>
 
-
-
+ 
 
 </ResourceDictionary>

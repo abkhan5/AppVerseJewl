@@ -36,15 +36,14 @@ namespace AppVerse.Jewel.HorizonModule.ViewModels
 
         private bool CanExecuteLoadFilesCommand()
         {
-            return !_filePicker.IsOpen && !_isFileLoading;
+            return !_filePicker.IsOpen && !_isFileLoading&& SelectedFiles.Count>0;
         }
 
-        private async void ExecuteLoadFilesCommand()
+        private void ExecuteLoadFilesCommand()
         {
             _isFileLoading = true;
             foreach (var selectedFile in SelectedFiles)
-                await _horizonDataProvider.GetDepth(selectedFile.Model);
-
+                selectedFile.LoadFilesCommand.Execute();
             _isFileLoading = false;
         }
 
@@ -63,6 +62,7 @@ namespace AppVerse.Jewel.HorizonModule.ViewModels
                 depthVm.Model = fileName;
                 SelectedFiles.Add(depthVm);
             }
+            LoadFilesCommand.RaiseCanExecuteChanged();
         }
 
         protected override void Initialize()

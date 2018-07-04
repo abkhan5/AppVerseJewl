@@ -1,0 +1,11 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:AppVerse.Jewel.NavigationModule"
+                    xmlns:views="clr-namespace:AppVerse.Jewel.NavigationModule.Views"
+                    xmlns:viewModels="clr-namespace:AppVerse.Jewel.NavigationModule.ViewModels">
+
+    <DataTemplate DataType="{x:Type viewModels:NavigationShellViewModel}">
+        <views:NavigationShellView />
+    </DataTemplate>
+
+</ResourceDictionary>

@@ -80,6 +80,7 @@
     <Compile Include="ApplicationBase\BaseModule.cs" />
     <Compile Include="ApplicationBase\BaseViewModel.cs" />
     <Compile Include="ApplicationBase\DataModelBase.cs" />
+    <Compile Include="Constants.cs" />
     <Compile Include="ContainerNamesConstant.cs" />
     <Compile Include="Cultures\CultureResources.cs" />
     <Compile Include="Cultures\Resources.Designer.cs">

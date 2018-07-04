@@ -41,8 +41,10 @@ namespace AppVerse.Jewel.Shell
         protected override void ConfigureModuleCatalog()
         {
             var catalog = (ModuleCatalog) ModuleCatalog;
-            catalog.AddModule(typeof(HorizonModule.HorizonModule));
             catalog.AddModule(typeof(StatusModule.StatusModule));
+            catalog.AddModule(typeof(NavigationModule.NavigatoinModule));
+            catalog.AddModule(typeof(HorizonModule.HorizonModule));
+
         }
 
         protected override void InitializeShell()

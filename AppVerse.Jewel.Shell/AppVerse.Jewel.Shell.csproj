@@ -142,6 +142,10 @@
       <Project>{719598c5-761f-476a-b9c6-c4977d6bed3b}</Project>
       <Name>AppVerse.Jewel.Loaders</Name>
     </ProjectReference>
+    <ProjectReference Include="..\AppVerse.Jewel.NavigationModule\AppVerse.Jewel.NavigationModule.csproj">
+      <Project>{64745164-4d10-4121-b014-51060bfcacf7}</Project>
+      <Name>AppVerse.Jewel.NavigationModule</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AppVerse.Jewel.StatusModule\AppVerse.Jewel.StatusModule.csproj">
       <Project>{050c1f4c-299c-4843-a71b-ade808c8c6cf}</Project>
       <Name>AppVerse.Jewel.StatusModule</Name>
@@ -154,6 +158,9 @@
       <Project>{b4b1fc11-d568-47c6-96e5-249151a8ff19}</Project>
       <Name>AppVerse.Jewel.Core</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="PeterM_Diamond.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,4 +1,5 @@
 ﻿using AppVerse.Jewel.Contract;
+using AppVerse.Jewel.Core;
 using AppVerse.Jewel.Core.ApplicationBase;
 using AppVerse.Jewel.Entities;
 using Microsoft.Practices.Unity;
@@ -18,7 +19,7 @@ namespace AppVerse.Jewel.HorizonModule.ViewModels
         {
             _horizonDataProvider = horizonDataProvider;
             LoadFilesCommand = new DelegateCommand(ExecuteLoadFilesCommand, CanExecuteLoadFilesCommand);
-            LoadStatus = "Not loaded";
+            _loadStatus = Constants.NotLoaded;
         }
 
 
@@ -47,9 +48,12 @@ namespace AppVerse.Jewel.HorizonModule.ViewModels
         private async void ExecuteLoadFilesCommand()
         {
             _isFileLoading = true;
+            LoadStatus = Constants.Loading;
+            LoadFilesCommand.RaiseCanExecuteChanged();
             await _horizonDataProvider.GetDepth(Model);
-            LoadStatus = "Loaded";
+            LoadStatus = Constants.Loaded;
             _isFileLoading = false;
+            LoadFilesCommand.RaiseCanExecuteChanged();
         }
     }
 }

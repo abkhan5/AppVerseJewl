@@ -5,6 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
              mc:Ignorable="d" 
+             xmlns:controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+             xmlns:core="clr-namespace:AppVerse.Jewel.Core;assembly=AppVerse.Jewel.Core"
              d:DesignHeight="450" d:DesignWidth="800">
 
     <Grid>
@@ -33,21 +35,21 @@
                 Style="{StaticResource AccentedSquareButtonStyle}"
                 Command="{Binding LoadFilesCommand}"/>
         </Grid>
-        <DataGrid ItemsSource="{Binding SelectedFiles}" SelectionUnit="Cell" SelectionMode="Single" AutoGenerateColumns="False" Grid.Row="3">
+        <DataGrid ItemsSource="{Binding SelectedFiles}" SelectionUnit="FullRow" SelectionMode="Single" AutoGenerateColumns="False" Grid.Row="3">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="File Name" Binding="{Binding Model.FileLoadProgress.ProgressOf}" />
+                <DataGridTextColumn IsReadOnly="True" Header="File Name" Binding="{Binding Model.FileLoadProgress.ProgressOf}" />
                 <DataGridTemplateColumn Header="Progress" >
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <mah:MetroProgressBar   Value="{Binding Model.FileLoadProgress.Progress, Mode=TwoWay}"  Minimum="0"  Maximum="{Binding Model.FileLoadProgress.Max}" />
+                            <mah:MetroProgressBar  VerticalAlignment="Stretch" Value="{Binding Model.FileLoadProgress.Progress, Mode=TwoWay}"  Minimum="0"  Maximum="{Binding Model.FileLoadProgress.Max}" />
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
                 
-                <DataGridTemplateColumn Header="Load Files" Width="SizeToCells" IsReadOnly="False">
+                <DataGridTemplateColumn Header="Load Files" IsReadOnly="False">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button Command="{Binding LoadFilesCommand}" Content="{Binding LoadStatus}"  Style="{StaticResource AccentedSquareButtonStyle}"/>
+                            <Button  Command="{Binding LoadFilesCommand}" Content="{Binding LoadStatus}"  Style="{StaticResource AccentedSquareButtonStyle}" />
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
