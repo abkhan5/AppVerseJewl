@@ -85,6 +85,9 @@
     <Compile Include="Views\DepthFileContentView.xaml.cs">
       <DependentUpon>DepthFileContentView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\DepthFileView.xaml.cs">
+      <DependentUpon>DepthFileView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\HorizonFilePikcerView.xaml.cs">
       <DependentUpon>HorizonFilePikcerView.xaml</DependentUpon>
     </Compile>
@@ -100,6 +103,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\DepthFileContentView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DepthFileView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

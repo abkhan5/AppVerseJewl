@@ -13,6 +13,11 @@
         <views:HorizonShellView />
     </DataTemplate>
 
+
+    <DataTemplate DataType="{x:Type viewModels:DepthFileViewModel}">
+        <views:DepthFileView />
+    </DataTemplate>
+
     <DataTemplate DataType="{x:Type viewModels:HorizonFilePikcerViewModel}">
         <views:HorizonFilePikcerView />
     </DataTemplate>

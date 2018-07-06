@@ -12,7 +12,7 @@ namespace AppVerse.Jewel.HorizonModule.ViewModels
         private readonly IHorizonDataProvider _horizonDataProvider;
         private readonly INavigation _navigation;
         private bool _isFileLoading;
-        private string _loadStatus;
+        private string _fileStatus;
         private NavigationItem _navigationItem;
         private string _volume;
 
@@ -24,7 +24,7 @@ namespace AppVerse.Jewel.HorizonModule.ViewModels
             _navigation = navigation;
             LoadFilesCommand = new DelegateCommand(ExecuteLoadFilesCommand, CanExecuteLoadFilesCommand);
             ShowOnCanvasCommand = new DelegateCommand(ExecuteShowOnCanvasCommand, CanShowOnCanvasCommand);
-            _loadStatus = Constants.NotLoaded;
+            _fileStatus = Constants.Attached;
         }
 
 
@@ -36,10 +36,10 @@ namespace AppVerse.Jewel.HorizonModule.ViewModels
 
         public DepthFile Model { get; set; }
 
-        public string LoadStatus
+        public string FileStatus
         {
-            get => _loadStatus;
-            set => SetProperty(ref _loadStatus, value);
+            get => _fileStatus;
+            set => SetProperty(ref _fileStatus, value);
         }
 
         public string Volume
@@ -52,7 +52,7 @@ namespace AppVerse.Jewel.HorizonModule.ViewModels
 
         private bool CanShowOnCanvasCommand()
         {
-            return LoadStatus == Constants.Loaded;
+            return FileStatus == Constants.Loaded;
         }
 
         private void ExecuteShowOnCanvasCommand()
@@ -88,10 +88,10 @@ namespace AppVerse.Jewel.HorizonModule.ViewModels
         private async void ExecuteLoadFilesCommand()
         {
             _isFileLoading = true;
-            LoadStatus = Constants.Loading;
+            FileStatus = Constants.Loading;
             LoadFilesCommand.RaiseCanExecuteChanged();
             await _horizonDataProvider.GetDepth(Model);
-            LoadStatus = Constants.Loaded;
+            FileStatus = Constants.Loaded;
             _isFileLoading = false;
             ShowOnCanvasCommand.RaiseCanExecuteChanged();
             Volume = "Vol";

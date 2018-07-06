@@ -58,9 +58,11 @@ namespace AppVerse.Jewel.HorizonModule.ViewModels
 
         private void ExecuteFilePickerCommand()
         {
-            var fileNames = _filePicker.GetFilePaths(true, FileFormat.Csv, FileFormat.Excel);
+            var fileNames = _filePicker.GetFilePaths(true, FileFormat.Csv, FileFormat.Excel).ToList();
+
             if (!fileNames.Any())
                 return;
+
             SelectedFiles.Clear();
             foreach (var fileName in fileNames)
             {
@@ -68,7 +70,6 @@ namespace AppVerse.Jewel.HorizonModule.ViewModels
                 depthVm.Model = fileName;
                 SelectedFiles.Add(depthVm);
             }
-
             LoadFilesCommand.RaiseCanExecuteChanged();
         }
 
