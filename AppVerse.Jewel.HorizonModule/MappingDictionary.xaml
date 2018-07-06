@@ -17,8 +17,12 @@
         <views:HorizonFilePikcerView />
     </DataTemplate>
 
-    <DataTemplate DataType="{x:Type viewModels:DepthFileViewModel }">
-        <views:DepthFileView />
+    <DataTemplate DataType="{x:Type viewModels:DepthFileContentViewModel }">
+        <views:DepthFileContentView />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type viewModels:HorizonVolumeViewModel }">
+        <views:HorizonVolumeView />
     </DataTemplate>
 
     <converter:DepthFileLoadStatusToBoolConverter x:Key="DepthFileLoadStatusToBoolConverter" />

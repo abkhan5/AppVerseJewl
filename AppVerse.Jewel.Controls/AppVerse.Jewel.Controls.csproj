@@ -37,6 +37,9 @@
     <Reference Include="MahApps.Metro, Version=1.6.5.1, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MahApps.Metro.1.6.5\lib\net47\MahApps.Metro.dll</HintPath>
     </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.Modern, Version=2.3.0.4, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.Modern.2.3.0\lib\net46\MahApps.Metro.IconPacks.Modern.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
     </Reference>
@@ -77,6 +80,9 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppImageControl.xaml.cs">
+      <DependentUpon>AppImageControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Converter\DepthFileLoadStatusToBoolConverter.cs" />
     <Compile Include="HorizonFilePicker.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -115,6 +121,12 @@
       <Project>{b4b1fc11-d568-47c6-96e5-249151a8ff19}</Project>
       <Name>AppVerse.Jewel.Core</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="AppImageControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

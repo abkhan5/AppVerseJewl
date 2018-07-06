@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace AppVerse.Jewel.HorizonModule.Views
 {
     /// <summary>
-    /// Interaction logic for DepthFileView.xaml
+    /// Interaction logic for DepthFileContentView.xaml
     /// </summary>
-    public partial class DepthFileView : UserControl
+    public partial class DepthFileContentView : UserControl
     {
-        public DepthFileView()
+        public DepthFileContentView()
         {
             InitializeComponent();
         }

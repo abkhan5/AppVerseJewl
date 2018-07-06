@@ -5,5 +5,6 @@
         public const string FileLoader= "CloudUpload";
         public const string Csv= "Paper";
         public const string Excel = "OfficeExcel";
+        public const string DefaultImage = "";
     }
 }

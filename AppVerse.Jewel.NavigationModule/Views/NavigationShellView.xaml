@@ -21,12 +21,9 @@
                     <Grid x:Name="IconPart"
                           Width="48"
                           DockPanel.Dock="Left">
-                        <Label Background="Transparent" VerticalAlignment="Center" 
-                               HorizontalAlignment="Center">
-                            <iconPacks:PackIconModern VerticalAlignment="Center" 
-                                                      HorizontalAlignment="Center"
-                                                      Kind="{Binding ImagePath, Mode=TwoWay}" />
-                        </Label>
+                        <iconPacks:PackIconModern VerticalAlignment="Center"
+                                                  HorizontalAlignment="Center"
+                                                  Kind="{Binding ImagePath, Mode=TwoWay}" />
                     </Grid>
                     <TextBlock x:Name="TextPart"
                                VerticalAlignment="Center"
@@ -90,7 +87,7 @@
         <!--  Options  -->
 
         <mah:HamburgerMenu.ContentTemplate>
-            <DataTemplate >
+            <DataTemplate>
                 <mah:TransitioningContentControl VerticalContentAlignment="Stretch"
                                                  HorizontalContentAlignment="Stretch"
                                                  RestartTransitionOnContentChange="True"
@@ -105,7 +102,7 @@
 
             </DataTemplate>
         </mah:HamburgerMenu.ContentTemplate>
-    
+
 
     </mah:HamburgerMenu>
 

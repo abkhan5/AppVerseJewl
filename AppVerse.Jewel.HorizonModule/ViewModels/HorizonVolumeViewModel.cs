@@ -11,16 +11,18 @@ namespace AppVerse.Jewel.HorizonModule.ViewModels
     {
         #region Private Members
         private readonly INavigation _navigation;
+        private DepthFileContentViewModel _depthFileContentViewModel;
         private DepthFile _volumeSource;
+         
         #endregion
 
         #region Constructor
 
-        public HorizonVolumeViewModel(IUnityContainer unityContainer, INavigation navigation) :
+        public HorizonVolumeViewModel(IUnityContainer unityContainer, INavigation navigation, DepthFileContentViewModel depthFileContentViewModel) :
             base(unityContainer)
         {
             _navigation = navigation;
-
+            _depthFileContentViewModel = depthFileContentViewModel;
         }
 
         #endregion
@@ -32,14 +34,15 @@ namespace AppVerse.Jewel.HorizonModule.ViewModels
 
         public  void Initialize(DepthFile volumeSource)
         {
-            VolumeSource = volumeSource;
+            _volumeSource = volumeSource;
+            _depthFileContentViewModel.Initialize( volumeSource);
         }
 
 
-        public DepthFile VolumeSource
+        public DepthFileContentViewModel VolumeSource
         {
-            get => _volumeSource;
-            set =>  SetProperty(ref _volumeSource , value);
+            get => _depthFileContentViewModel;
+            set =>  SetProperty(ref _depthFileContentViewModel, value);
         }
     }
 }

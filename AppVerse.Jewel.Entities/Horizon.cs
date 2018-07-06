@@ -15,9 +15,15 @@ namespace AppVerse.Jewel.Entities
 
         public Horizon(int row, int column)
         {
-            Depth = new int[row, column]; 
+            Depth = new int[row][];
+            for (int i = 0; i < row; i++)
+            {
+                Depth [i]= new int[column];
+            }
         }
 
-        public int[,] Depth { get; }
+        public int[][] Depth { get; }
+
+        public string TotalVolume { get; set; }
     }
 }
