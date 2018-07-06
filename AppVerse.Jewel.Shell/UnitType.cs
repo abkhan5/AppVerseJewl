@@ -1,0 +1,4 @@
+﻿namespace AppVerse.Jewel.Shell
+{
+  
+}

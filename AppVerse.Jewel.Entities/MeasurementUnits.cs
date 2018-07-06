@@ -1,7 +1,9 @@
 ﻿namespace AppVerse.Jewel.Entities
 {
-    public enum MeasurementUnits 
+    public enum LengthUnits
     {
+        Meter,
+        Feet,
         CubicMeter,
         CubicFeet,
         Barrels

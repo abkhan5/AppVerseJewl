@@ -82,7 +82,7 @@
     <Compile Include="Extensions.cs" />
     <Compile Include="FileFormat.cs" />
     <Compile Include="Horizon.cs" />
-    <Compile Include="ImageAttribute.cs" />
+    <Compile Include="IUnitSystem.cs" />
     <Compile Include="LateralDimensions.cs" />
     <Compile Include="MeasurementUnits.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -98,7 +98,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="TabModel.cs" />
+    <Compile Include="NavigationItem.cs" />
+    <Compile Include="Unit.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

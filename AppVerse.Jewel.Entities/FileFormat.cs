@@ -5,14 +5,14 @@ namespace AppVerse.Jewel.Entities
 {
     public enum FileFormat
     {
-        [ImagePathAttribute(ImageNamesConstant.Csv)]
+        [ImagePath(ImageNamesConstant.Csv)]
         [Description(Constants.CsvExtension)]
         Csv,
-        [ImagePathAttribute(ImageNamesConstant.Excel)]
+        [ImagePath(ImageNamesConstant.Excel)]
         [Description(Constants.ExcelExtension)]
         Excel,
 
-        [ImagePathAttribute(ImageNamesConstant.Csv)]
+        [ImagePath(ImageNamesConstant.Csv)]
         [Description(Constants.AllFileExtension)]
         All
     }

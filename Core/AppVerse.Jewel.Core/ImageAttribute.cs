@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace AppVerse.Jewel.Entities
+namespace AppVerse.Jewel.Core
 {
     [AttributeUsage(AttributeTargets.Field)]
     public sealed class ImagePathAttribute  : Attribute
