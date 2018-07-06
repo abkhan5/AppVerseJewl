@@ -10,22 +10,28 @@ namespace AppVerse.Jewel.HorizonModule.ViewModels
     public class DepthFileViewModel : BaseViewModel
     {
         private readonly IHorizonDataProvider _horizonDataProvider;
-
+        private readonly INavigation _navigation;
         private bool _isFileLoading;
         private string _loadStatus;
+        private NavigationItem _navigationItem;
+        private string _volume;
 
-        public DepthFileViewModel(IUnityContainer unityContainer, IHorizonDataProvider horizonDataProvider) : base(
+        public DepthFileViewModel(IUnityContainer unityContainer, IHorizonDataProvider horizonDataProvider,
+            INavigation navigation) : base(
             unityContainer)
         {
             _horizonDataProvider = horizonDataProvider;
+            _navigation = navigation;
             LoadFilesCommand = new DelegateCommand(ExecuteLoadFilesCommand, CanExecuteLoadFilesCommand);
+            ShowOnCanvasCommand = new DelegateCommand(ExecuteShowOnCanvasCommand, CanShowOnCanvasCommand);
             _loadStatus = Constants.NotLoaded;
         }
 
 
         public DelegateCommand LoadFilesCommand { get; }
+        public DelegateCommand ShowOnCanvasCommand { get; }
 
-        private bool IsFileLoaded => Model?.FileLoadProgress != null && 
+        private bool IsFileLoaded => Model?.FileLoadProgress != null &&
                                      Model.FileLoadProgress.Progress == Model.FileLoadProgress.Max;
 
         public DepthFile Model { get; set; }
@@ -34,6 +40,40 @@ namespace AppVerse.Jewel.HorizonModule.ViewModels
         {
             get => _loadStatus;
             set => SetProperty(ref _loadStatus, value);
+        }
+
+        public string Volume
+        {
+            get => _volume;
+            set => SetProperty(ref _volume, value);
+        }
+
+        public bool IsSelected { get; set; }
+
+        private bool CanShowOnCanvasCommand()
+        {
+            return LoadStatus == Constants.Loaded;
+        }
+
+        private void ExecuteShowOnCanvasCommand()
+        {
+            SetNavigationItem();
+            _navigation.ActivateItem(_navigationItem);
+        }
+
+        private void SetNavigationItem()
+        {
+            if (_navigationItem != null)
+                return;
+            var volumeVm = _unityContainer.Resolve<HorizonVolumeViewModel>();
+            volumeVm.Initialize(Model);
+            _navigationItem = new NavigationItem
+            {
+                ImagePath = Model.Format.GetImageDescription(),
+                Name = Model.FileLoadProgress.ProgressOf,
+                IsSelected = true,
+                ViewModel = volumeVm
+            };
         }
 
         protected override void Initialize()
@@ -53,6 +93,8 @@ namespace AppVerse.Jewel.HorizonModule.ViewModels
             await _horizonDataProvider.GetDepth(Model);
             LoadStatus = Constants.Loaded;
             _isFileLoading = false;
+            ShowOnCanvasCommand.RaiseCanExecuteChanged();
+            Volume = "Vol";
             LoadFilesCommand.RaiseCanExecuteChanged();
         }
     }

@@ -79,8 +79,10 @@
   <ItemGroup>
     <Compile Include="AppProgress.cs" />
     <Compile Include="DepthFile.cs" />
+    <Compile Include="Extensions.cs" />
     <Compile Include="FileFormat.cs" />
     <Compile Include="Horizon.cs" />
+    <Compile Include="ImageAttribute.cs" />
     <Compile Include="LateralDimensions.cs" />
     <Compile Include="MeasurementUnits.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">

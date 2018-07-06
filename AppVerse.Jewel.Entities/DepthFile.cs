@@ -12,7 +12,7 @@
             Format = fileFormat;
         }
 
-
+        public string Volume { get; set; }
         public string FilePath { get; set; }
 
         public FileFormat Format { get; set; }

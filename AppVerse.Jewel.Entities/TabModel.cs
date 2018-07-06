@@ -9,7 +9,7 @@ namespace AppVerse.Jewel.Entities
         public NavigationItem()
         {
             Name = "";
-            ImagePath = "";
+            ImagePath = "StarRegular";
         }
         public string Name { get; set; }
 
@@ -20,5 +20,8 @@ namespace AppVerse.Jewel.Entities
         }
 
         public string ImagePath { get; set; }
+
+        public BaseViewModel ViewModel { get; set; }    
+        
     }
 }

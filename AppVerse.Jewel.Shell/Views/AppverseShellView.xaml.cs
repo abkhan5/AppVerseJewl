@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using AppVerse.Jewel.Core.Cultures;
 using AppVerse.Jewel.Shell.ViewModels;
+using MahApps.Metro.Controls;
 
 namespace AppVerse.Jewel.Shell.Views
 {
@@ -27,6 +28,9 @@ namespace AppVerse.Jewel.Shell.Views
             InitializeComponent();
             CultureResources.ChangeCulture(Properties.Settings.Default.DefaultCulture);
             ShowTitleBar = true;
+        }
+        private void HamburgerMenu_OnItemClick(object sender, ItemClickEventArgs e)
+        {
         }
     }
 }

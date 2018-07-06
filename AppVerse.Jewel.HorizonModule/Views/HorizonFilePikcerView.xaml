@@ -53,6 +53,14 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn Header="Show On Canvas" IsReadOnly="False">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button  Command="{Binding ShowOnCanvasCommand}" Content="{Binding Volume }"  Style="{StaticResource AccentedSquareButtonStyle}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
 

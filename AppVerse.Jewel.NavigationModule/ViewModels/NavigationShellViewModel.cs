@@ -11,43 +11,49 @@ namespace AppVerse.Jewel.NavigationModule.ViewModels
 
     {
         private NavigationItem _selectedItem;
+        private object _viewModel;
 
         public NavigationShellViewModel(IUnityContainer unityContainer) : base(unityContainer)
         {
-            NavigationItems=new ObservableCollection<NavigationItem>();
+            NavigationItems = new ObservableCollection<NavigationItem>();
         }
-
-        protected override void Initialize()
-        {
-        }
-
-        public ObservableCollection<NavigationItem> NavigationItems { get; }
 
         public NavigationItem SelectedItem
         {
             get => _selectedItem;
             set
             {
-                _selectedItem.IsSelected = false;
+                if (_selectedItem != null) _selectedItem.IsSelected = false;
                 _selectedItem = value;
                 _selectedItem.IsSelected = true;
             }
-
         }
+
+        public object ViewModel
+        {
+            get => _viewModel;
+            set => SetProperty(ref _viewModel, value);
+        }
+
+        public ObservableCollection<NavigationItem> NavigationItems { get; }
 
         public void ActivateItem(NavigationItem navigationItem)
         {
-            if (!NavigationItems.Contains(navigationItem))
-            {
-                NavigationItems.Add(navigationItem);
-            }
+            if (!NavigationItems.Contains(navigationItem)) NavigationItems.Add(navigationItem);
             navigationItem.IsSelected = true;
+            SelectedItem = navigationItem;
+            ViewModel = navigationItem.ViewModel;
         }
 
         public void ActivateItem(string navigationItemName)
         {
-            var navItem = NavigationItems.First(item => item.Name == navigationItemName) ?? new NavigationItem{Name = navigationItemName};
+            var navItem = NavigationItems.First(item => item.Name == navigationItemName) ??
+                          new NavigationItem {Name = navigationItemName};
             ActivateItem(navItem);
+        }
+
+        protected override void Initialize()
+        {
         }
     }
 }

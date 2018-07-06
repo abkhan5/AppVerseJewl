@@ -22,19 +22,5 @@ namespace AppVerse.Jewel.Core
             dictionary.Source = new Uri(string.Format(source));
             Application.Current.Resources.MergedDictionaries.Add(dictionary);
         }
-
-        public static string GetDescription(this Enum enumValue)
-        {
-            FieldInfo fi = enumValue.GetType().GetField(enumValue.ToString());
-
-            if (null != fi)
-            {
-                object[] attrs = fi.GetCustomAttributes(typeof(DescriptionAttribute), true);
-                if (attrs.Length > 0)
-                    return ((DescriptionAttribute)attrs[0]).Description;
-            }
-
-            return "";
-        }
     }
 }

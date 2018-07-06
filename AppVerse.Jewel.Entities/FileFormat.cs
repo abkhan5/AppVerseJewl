@@ -1,14 +1,19 @@
 ﻿using System.ComponentModel;
+using AppVerse.Jewel.Core;
 
 namespace AppVerse.Jewel.Entities
 {
     public enum FileFormat
     {
-        [Description("CSV (*.csv)|*.csv")]
+        [ImagePathAttribute(ImageNamesConstant.Csv)]
+        [Description(Constants.CsvExtension)]
         Csv,
-        [Description("Excel (*.xls;*.xlsx)|*.xls;*.xlsx")]
+        [ImagePathAttribute(ImageNamesConstant.Excel)]
+        [Description(Constants.ExcelExtension)]
         Excel,
-        [Description("All files (*.*)|*.*")]
+
+        [ImagePathAttribute(ImageNamesConstant.Csv)]
+        [Description(Constants.AllFileExtension)]
         All
     }
 }

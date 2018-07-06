@@ -1,7 +1,9 @@
 ﻿#region Namespace
 
 using System.Collections.ObjectModel;
+using System.Linq;
 using AppVerse.Jewel.Contract;
+using AppVerse.Jewel.Core;
 using AppVerse.Jewel.Core.ApplicationBase;
 using AppVerse.Jewel.Entities;
 using Microsoft.Practices.Unity;
@@ -14,19 +16,21 @@ namespace AppVerse.Jewel.HorizonModule.ViewModels
     public class HorizonFilePikcerViewModel : BaseViewModel
     {
         private readonly IFilePicker _filePicker;
-        private readonly IHorizonDataProvider _horizonDataProvider;
+        private readonly INavigation _navigation;
 
         private bool _isFileLoading;
 
         public HorizonFilePikcerViewModel(IUnityContainer unityContainer, IFilePicker filePicker,
-            IHorizonDataProvider horizonDataProvider) : base(unityContainer)
+            INavigation navigation
+            ) : base(unityContainer)
         {
             _filePicker = filePicker;
-            _horizonDataProvider = horizonDataProvider;
+            _navigation = navigation;
             HorizonFilePickerCommand = new DelegateCommand(ExecuteFilePickerCommand, CanExecuteFilePickerCommand);
             LoadFilesCommand = new DelegateCommand(ExecuteLoadFilesCommand, CanExecuteLoadFilesCommand);
             SelectedFiles = new ObservableCollection<DepthFileViewModel>();
             _isFileLoading = false;
+            Initialize();
         }
 
         public ObservableCollection<DepthFileViewModel> SelectedFiles { get; }
@@ -54,19 +58,29 @@ namespace AppVerse.Jewel.HorizonModule.ViewModels
 
         private void ExecuteFilePickerCommand()
         {
-            SelectedFiles.Clear();
             var fileNames = _filePicker.GetFilePaths(true, FileFormat.Csv, FileFormat.Excel);
+            if (!fileNames.Any())
+                return;
+            SelectedFiles.Clear();
             foreach (var fileName in fileNames)
             {
                 var depthVm = _unityContainer.Resolve<DepthFileViewModel>();
                 depthVm.Model = fileName;
                 SelectedFiles.Add(depthVm);
             }
+
             LoadFilesCommand.RaiseCanExecuteChanged();
         }
 
         protected override void Initialize()
         {
+            _navigation?.ActivateItem( new NavigationItem()
+            {
+                ImagePath = ImageNamesConstant.FileLoader,
+                Name = ImageNamesConstant.FileLoader,
+                IsSelected = true,
+                ViewModel = this
+            });
         }
     }
 }

@@ -94,6 +94,7 @@
       <DependentUpon>Resources.en.resx</DependentUpon>
     </Compile>
     <Compile Include="Extensions.cs" />
+    <Compile Include="ImageNamesConstant.cs" />
     <Compile Include="ModuleNames.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

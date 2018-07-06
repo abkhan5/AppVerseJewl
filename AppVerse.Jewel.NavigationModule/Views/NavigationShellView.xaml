@@ -5,6 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:AppVerse.Jewel.NavigationModule.Views"
              xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+             xmlns:entities="clr-namespace:AppVerse.Jewel.Entities;assembly=AppVerse.Jewel.Entities"
+             xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
              mc:Ignorable="d"
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.Resources>
@@ -14,7 +16,55 @@
                     Source="pack://application:,,,/MahApps.Metro;component/Themes/HamburgerMenuTemplate.xaml" />
             </ResourceDictionary.MergedDictionaries>
 
-            <DataTemplate x:Key="HamburgerMenuItem" DataType="{x:Type mah:HamburgerMenuGlyphItem}" />
+            <DataTemplate x:Key="HamburgerMenuItem" DataType="{x:Type entities:NavigationItem}">
+                <DockPanel Height="48" LastChildFill="True">
+                    <Grid x:Name="IconPart"
+                          Width="48"
+                          DockPanel.Dock="Left">
+                        <Label Background="Transparent" VerticalAlignment="Center" 
+                               HorizontalAlignment="Center">
+                            <iconPacks:PackIconModern VerticalAlignment="Center" 
+                                                      HorizontalAlignment="Center"
+                                                      Kind="{Binding ImagePath, Mode=TwoWay}" />
+                        </Label>
+                    </Grid>
+                    <TextBlock x:Name="TextPart"
+                               VerticalAlignment="Center"
+                               FontSize="16"
+                               Text="{Binding Name}" />
+                </DockPanel>
+                <DataTemplate.Triggers>
+                    <DataTrigger
+                        Binding="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type mah:HamburgerMenu}}, Path=PanePlacement}"
+                        Value="Right">
+                        <Setter TargetName="IconPart" Property="DockPanel.Dock" Value="Right" />
+                        <Setter TargetName="TextPart" Property="Margin" Value="8 0 0 0" />
+                    </DataTrigger>
+                </DataTemplate.Triggers>
+            </DataTemplate>
+
+            <DataTemplate x:Key="HamburgerOptionsMenuItem" DataType="{x:Type mah:HamburgerMenuItem}">
+                <DockPanel Height="48" LastChildFill="True">
+                    <ContentControl x:Name="IconPart"
+                                    Width="48"
+                                    Content="{Binding Tag}"
+                                    DockPanel.Dock="Left"
+                                    Focusable="False"
+                                    IsTabStop="False" />
+                    <TextBlock x:Name="TextPart"
+                               VerticalAlignment="Center"
+                               FontSize="16"
+                               Text="{Binding Label}" />
+                </DockPanel>
+                <DataTemplate.Triggers>
+                    <DataTrigger
+                        Binding="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type mah:HamburgerMenu}}, Path=PanePlacement}"
+                        Value="Right">
+                        <Setter TargetName="IconPart" Property="DockPanel.Dock" Value="Right" />
+                        <Setter TargetName="TextPart" Property="Margin" Value="8 0 0 0" />
+                    </DataTrigger>
+                </DataTemplate.Triggers>
+            </DataTemplate>
 
         </ResourceDictionary>
 
@@ -24,8 +74,39 @@
                        ItemClick="HamburgerMenu_OnItemClick"
                        ItemTemplate="{StaticResource HamburgerMenuItem}"
                        SelectedIndex="1"
+                       Content="{Binding ViewModel}"
                        ItemsSource="{Binding NavigationItems}"
                        SelectedItem="{Binding SelectedItem}"
-                       VerticalScrollBarOnLeftSide="False" />
+                       VerticalScrollBarOnLeftSide="False">
+        <mah:HamburgerMenu.HamburgerMenuHeaderTemplate>
+            <DataTemplate>
+                <TextBlock HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           FontSize="16"
+                           Foreground="White"
+                           Text="Jewel Suite" />
+            </DataTemplate>
+        </mah:HamburgerMenu.HamburgerMenuHeaderTemplate>
+        <!--  Options  -->
+
+        <mah:HamburgerMenu.ContentTemplate>
+            <DataTemplate >
+                <mah:TransitioningContentControl VerticalContentAlignment="Stretch"
+                                                 HorizontalContentAlignment="Stretch"
+                                                 RestartTransitionOnContentChange="True"
+                                                 Transition="Default">
+                    <mah:TransitioningContentControl.Content>
+                        <ContentControl x:Name="MainRegion"
+                                        Content="{Binding }"
+                                        VerticalContentAlignment="Stretch"
+                                        HorizontalContentAlignment="Stretch" />
+                    </mah:TransitioningContentControl.Content>
+                </mah:TransitioningContentControl>
+
+            </DataTemplate>
+        </mah:HamburgerMenu.ContentTemplate>
+    
+
+    </mah:HamburgerMenu>
 
 </UserControl>

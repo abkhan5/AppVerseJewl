@@ -26,9 +26,9 @@ namespace AppVerse.Jewel.HorizonModule
 
         protected override void RegisterResources()
         {
-            _regionManager.Regions[RegionNames.ContentRegion].Add(_unityContainer.Resolve<HorizonShellViewModel>(),
-                ModuleNames.HorizonModule);
             Extensions.RegisterResources(_resources);
+            var vm = _unityContainer.Resolve<HorizonShellViewModel>();
+            
         }
     }
 }

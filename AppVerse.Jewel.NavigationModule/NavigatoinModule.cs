@@ -7,6 +7,7 @@ using AppVerse.Jewel.Contract;
 using AppVerse.Jewel.Core;
 using AppVerse.Jewel.Core.ApplicationBase;
 using AppVerse.Jewel.NavigationModule.ViewModels;
+using AppVerse.Jewel.NavigationModule.Views;
 using Microsoft.Practices.Unity;
 using Prism.Regions;
 
@@ -30,10 +31,10 @@ namespace AppVerse.Jewel.NavigationModule
         }
         protected override void RegisterResources()
         {
-            Register();
-            _regionManager.Regions[RegionNames.NavigationRegion].Add(_unityContainer.Resolve<INavigation>(),
-                ModuleNames.Navigation);
             Extensions.RegisterResources(_resources);
+            Register();
+            _regionManager.Regions[RegionNames.ShellRegion]
+                .Add(_unityContainer.Resolve<INavigation>(), ModuleNames.Navigation);
         }
     }
 }

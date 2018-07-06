@@ -30,6 +30,8 @@ namespace AppVerse.Jewel.Core.ApplicationBase
         #region Properties
         public IEventAggregator AppEventAggregator => _evenAggregator ?? (_evenAggregator = _unityContainer.Resolve<IEventAggregator>());
 
+
+        public string Title { get; protected set; }
         #endregion
 
         #region methods

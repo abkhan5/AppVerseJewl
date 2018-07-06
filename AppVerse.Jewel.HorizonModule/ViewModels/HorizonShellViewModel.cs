@@ -1,23 +1,28 @@
 ﻿#region Namespace
 
+using AppVerse.Jewel.Contract;
 using AppVerse.Jewel.Core.ApplicationBase;
-using Microsoft.Practices.Unity; 
+using Microsoft.Practices.Unity;
+
 #endregion
 
 namespace AppVerse.Jewel.HorizonModule.ViewModels
 {
-  public  class HorizonShellViewModel : BaseViewModel
+    public class HorizonShellViewModel : BaseViewModel
     {
-        public HorizonShellViewModel(IUnityContainer unityContainer, HorizonFilePikcerViewModel horizonFilePikcerViewModel) : base(unityContainer)
+        private readonly INavigation _navigation;
+
+        public HorizonShellViewModel(IUnityContainer unityContainer,
+            HorizonFilePikcerViewModel horizonFilePikcerViewModel, INavigation navigation) : base(unityContainer)
         {
+            _navigation = navigation;
             Horizon = horizonFilePikcerViewModel;
         }
 
+        public HorizonFilePikcerViewModel Horizon { get; set; }
+
         protected override void Initialize()
         {
-            
         }
-
-        public HorizonFilePikcerViewModel Horizon { get; set; }
     }
 }
