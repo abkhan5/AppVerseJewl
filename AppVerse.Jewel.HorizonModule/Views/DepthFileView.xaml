@@ -20,7 +20,7 @@
 
         <DataTemplate x:Key="FileLoadedStatusTemplate">
             <Button Command="{Binding ShowOnCanvasCommand}" 
-                    Content="{Binding FileStatus}"
+                    Content="{Binding Volume}"
                     Style="{StaticResource AccentedSquareButtonStyle}" />
         </DataTemplate>
 

@@ -70,9 +70,9 @@
                        HamburgerWidth="48"
                        ItemClick="HamburgerMenu_OnItemClick"
                        ItemTemplate="{StaticResource HamburgerMenuItem}"
-                       SelectedIndex="1"
-                       Content="{Binding ViewModel}"
+                       Content="{Binding ViewModel,Mode=TwoWay}"
                        ItemsSource="{Binding NavigationItems}"
+                       SelectedIndex="{Binding SelectedItemIndex}"
                        SelectedItem="{Binding SelectedItem}"
                        VerticalScrollBarOnLeftSide="False">
         <mah:HamburgerMenu.HamburgerMenuHeaderTemplate>
@@ -84,20 +84,15 @@
                            Text="Jewel Suite" />
             </DataTemplate>
         </mah:HamburgerMenu.HamburgerMenuHeaderTemplate>
-        <!--  Options  -->
+        
 
         <mah:HamburgerMenu.ContentTemplate>
             <DataTemplate>
                 <mah:TransitioningContentControl VerticalContentAlignment="Stretch"
                                                  HorizontalContentAlignment="Stretch"
                                                  RestartTransitionOnContentChange="True"
+                                                 Content="{Binding }"
                                                  Transition="Default">
-                    <mah:TransitioningContentControl.Content>
-                        <ContentControl x:Name="MainRegion"
-                                        Content="{Binding }"
-                                        VerticalContentAlignment="Stretch"
-                                        HorizontalContentAlignment="Stretch" />
-                    </mah:TransitioningContentControl.Content>
                 </mah:TransitioningContentControl>
 
             </DataTemplate>

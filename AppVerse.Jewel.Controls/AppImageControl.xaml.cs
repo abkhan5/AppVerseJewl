@@ -30,17 +30,8 @@ namespace AppVerse.Jewel.Controls
                 return;
 
             var imagePath = e.NewValue as string;
-            var names= Enum.GetNames(typeof(PackIconModernKind));
-
-            foreach (var name in names)
-            {
-                var packImagePath = (PackIconModernKind)Enum.Parse(typeof(PackIconModernKind),name);
-                var desc = packImagePath.GetDescription();
-                if (desc != imagePath)
-                    continue;
-                appImage.AppImageCtrl.Kind = packImagePath; 
-                break;
-            }
+            Enum.TryParse(imagePath, out PackIconModernKind packImagePath);
+            appImage.AppImageCtrl.Kind = packImagePath;
         }
 
         public string ImagePath

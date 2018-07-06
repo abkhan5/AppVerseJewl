@@ -15,6 +15,8 @@
         public string Volume { get; set; }
         public string FilePath { get; set; }
 
+        public string FileName => FileLoadProgress?.ProgressOf;
+
         public FileFormat Format { get; set; }
 
         public AppProgress FileLoadProgress { get; set; }

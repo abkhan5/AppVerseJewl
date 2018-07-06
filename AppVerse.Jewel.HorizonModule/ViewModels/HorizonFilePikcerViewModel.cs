@@ -20,7 +20,9 @@ namespace AppVerse.Jewel.HorizonModule.ViewModels
 
         private bool _isFileLoading;
 
-        public HorizonFilePikcerViewModel(IUnityContainer unityContainer, IFilePicker filePicker,
+        public HorizonFilePikcerViewModel(
+            IUnityContainer unityContainer, 
+            IFilePicker filePicker,
             INavigation navigation
             ) : base(unityContainer)
         {
@@ -58,14 +60,17 @@ namespace AppVerse.Jewel.HorizonModule.ViewModels
 
         private void ExecuteFilePickerCommand()
         {
-            var fileNames = _filePicker.GetFilePaths(true, FileFormat.Csv, FileFormat.Excel).ToList();
+            var files = _filePicker.GetFilePaths(true, FileFormat.Csv, FileFormat.Excel).ToList();
 
-            if (!fileNames.Any())
+            if (!files.Any())
                 return;
 
-            SelectedFiles.Clear();
-            foreach (var fileName in fileNames)
+            
+            foreach (var fileName in files)
             {
+                if (SelectedFiles.Any(selectedFile => selectedFile.Model.FileName==fileName.FileName))
+                continue;    
+                
                 var depthVm = _unityContainer.Resolve<DepthFileViewModel>();
                 depthVm.Model = fileName;
                 SelectedFiles.Add(depthVm);
@@ -75,7 +80,8 @@ namespace AppVerse.Jewel.HorizonModule.ViewModels
 
         protected override void Initialize()
         {
-            _navigation?.ActivateItem( new NavigationItem()
+            _navigation?.ActivateItem(
+                new NavigationItem
             {
                 ImagePath = ImageNamesConstant.FileLoader,
                 Name = ImageNamesConstant.FileLoader,

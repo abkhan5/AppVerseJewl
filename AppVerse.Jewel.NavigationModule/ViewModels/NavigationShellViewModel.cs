@@ -12,6 +12,7 @@ namespace AppVerse.Jewel.NavigationModule.ViewModels
     {
         private NavigationItem _selectedItem;
         private object _viewModel;
+        private int _selectedItemIndex;
 
         public NavigationShellViewModel(IUnityContainer unityContainer) : base(unityContainer)
         {
@@ -26,7 +27,15 @@ namespace AppVerse.Jewel.NavigationModule.ViewModels
                 if (_selectedItem != null) _selectedItem.IsSelected = false;
                 _selectedItem = value;
                 _selectedItem.IsSelected = true;
+                ViewModel = _selectedItem.ViewModel;
+                SelectedItemIndex = NavigationItems.IndexOf(_selectedItem);
             }
+        }
+
+        public int SelectedItemIndex
+        {
+            get => _selectedItemIndex;
+            set =>  SetProperty(ref _selectedItemIndex , value);
         }
 
         public object ViewModel

@@ -70,7 +70,7 @@ namespace AppVerse.Jewel.HorizonModule.ViewModels
             _navigationItem = new NavigationItem
             {
                 ImagePath = Model.Format.GetImageDescription(),
-                Name = Model.FileLoadProgress.ProgressOf,
+                Name = Model.FileName,
                 IsSelected = true,
                 ViewModel = volumeVm
             };
@@ -94,7 +94,7 @@ namespace AppVerse.Jewel.HorizonModule.ViewModels
             FileStatus = Constants.Loaded;
             _isFileLoading = false;
             ShowOnCanvasCommand.RaiseCanExecuteChanged();
-            Volume = "Vol";
+            Volume = "Show Volume";
             LoadFilesCommand.RaiseCanExecuteChanged();
         }
     }

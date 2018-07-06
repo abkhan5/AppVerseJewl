@@ -23,7 +23,7 @@ namespace AppVerse.Jewel.HorizonModule.ViewModels
         public DepthFile DepthFile{ get; set; }
 
         public string ImagePath { get; set; }
-
+        public string FileName { get; set; }
         public List<List<int>> Depth { get; set; }
 
         public string TotalVolume { get; set; }
@@ -33,8 +33,8 @@ namespace AppVerse.Jewel.HorizonModule.ViewModels
             DepthFile = depth;
             ImagePath = depth.Format.GetImageDescription();
             var depthChart = depth.TopHorizon.Depth;
-            
-            TotalVolume = depth.TopHorizon.TotalVolume;
+            FileName = depth.FileName;
+            TotalVolume = depth.Volume;
             for (int row = 0; row < 16; row++)
             {
                 var rowList= new List<int>();

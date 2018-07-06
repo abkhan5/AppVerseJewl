@@ -32,7 +32,7 @@ namespace AppVerse.Jewel.Loaders
                     {
                         var values = line.Split(Delimiter);
                         FillDepthSheet(fileName, values, row,ref sum);
-                        await Task.Delay(TimeSpan.FromSeconds(0.2)).ConfigureAwait(false);
+                        //await Task.Delay(TimeSpan.FromSeconds(0.2)).ConfigureAwait(false);
                     }
                     row++;
                 }

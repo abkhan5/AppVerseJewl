@@ -10,5 +10,5 @@
     <StatusBarItem>Jewel Suite</StatusBarItem>
     <Separator Style="{StaticResource MetroStatusBarSeparator}" />
     <StatusBarItem>Selected Tab:</StatusBarItem>
-    <StatusBarItem Content="{Binding  Path=SelectedItem.Header, Mode=OneWay}" />
+    <StatusBarItem Content="{Binding  Path=StatusControl.Title, Mode=OneWay}" />
 </StatusBar>
