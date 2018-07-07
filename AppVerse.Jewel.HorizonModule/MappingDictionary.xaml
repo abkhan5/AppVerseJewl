@@ -37,6 +37,20 @@
         <mah:MetroProgressBar   Value="{Binding Progress, Mode=TwoWay}"  Minimum="0"  Maximum="{Binding Max}" />
     </DataTemplate>
 
- 
+    <DataTemplate DataType="{x:Type models:LengthUnitSystem}" x:Key="UnitSystemTemplate" >
+
+        <Button Margin="10">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="5" />
+                    <ColumnDefinition Width="4*" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="{Binding SelectedValue}"  Grid.Column="0" />
+                <TextBlock Text="{Binding SelectedUnit}"  Grid.Column="2" />
+            </Grid>
+        </Button>
+    </DataTemplate>
+
 
 </ResourceDictionary>
