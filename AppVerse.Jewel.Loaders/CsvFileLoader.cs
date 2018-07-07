@@ -48,7 +48,7 @@ namespace AppVerse.Jewel.Loaders
             {
                 if (!int.TryParse(value, out var depth))
                     continue;
-                fileName.TopHorizon.Depth[column][row] = depth;
+                fileName.TopHorizon.Depth[column][row] = new LengthUnitSystem(depth);
                 sum += depth;
                 fileName.FileLoadProgress.Progress++;
                 column++;

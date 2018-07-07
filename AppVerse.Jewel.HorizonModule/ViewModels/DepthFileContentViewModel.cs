@@ -17,14 +17,14 @@ namespace AppVerse.Jewel.HorizonModule.ViewModels
 
         protected override void Initialize()
         {
-            Depth= new List<List<int>>();
+            Depth= new List<List<LengthUnitSystem>>();
         }
 
         public DepthFile DepthFile{ get; set; }
 
         public string ImagePath { get; set; }
         public string FileName { get; set; }
-        public List<List<int>> Depth { get; set; }
+        public List<List<LengthUnitSystem>> Depth { get; set; }
 
         public string TotalVolume { get; set; }
 
@@ -37,7 +37,7 @@ namespace AppVerse.Jewel.HorizonModule.ViewModels
             TotalVolume = depth.Volume;
             for (int row = 0; row < 16; row++)
             {
-                var rowList= new List<int>();
+                var rowList= new List<LengthUnitSystem>();
                 for (int column = 0; column < 26; column++)
                     rowList.Add(depthChart[row][column]);
                 Depth.Add(rowList);

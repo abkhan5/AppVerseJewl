@@ -1,39 +1,52 @@
-﻿namespace AppVerse.Jewel.Entities
+﻿using System;
+
+namespace AppVerse.Jewel.Entities
 {
-
-
-
-    public class LengthUnitSystem : IUnitSystemUnit>
+    public interface IUnitConversionSystem<T> where T: IUnit
     {
-        public Unit DefaultUnit => throw new System.NotImplementedException();
+        double Scale { get; }
+        double Shift { get; }
 
-        public Unit SelectedUnit => throw new System.NotImplementedException();
+        T FromUnit { get; }
+        T ToUnit { get; }
 
-        public Unit Convert(Unit from, Unit to)
+        double Convert(T from, T to, double value);
+
+    }
+
+    public abstract class UnitConversionSystem<T> : IUnitConversionSystem<T> where T : IUnit
+    {
+        public double Scale { get; set; }
+        public double Shift { get; set; }
+
+        public T FromUnit { get; set; }
+        public T ToUnit { get; set; }
+
+        public double Convert(T from, T to, double value)
         {
-            throw new System.NotImplementedException();
+            //if (from.Type != to.Type)
+            //    throw new InvalidOperationException("Conversion between incompatible types.");
+            //if (from.Shift == to.Shift && from.Scale == to.Scale)
+            //    return value;
+
+            //double v = (value - from.Shift) / from.Scale;
+            //return v * to.Scale + to.Shift;
+
+            return 0;
         }
+
+
     }
 
-    public interface IUnitSystem
+    public interface IUserUnitSystem<T>
     {
-        LengthUnits MeasurementUnit { get; }
+        T DefaultUnit { get; }
+        T SelectedUnit { get; }
     }
-    internal enum UnitType
+
+
+    public class VolumeUnitSystem
     {
-        Length
+
     }
-
-
-    public interface IUnitSystem<TIUnitSystem> where TIUnitSystem :IUnitSystem
-    {
-        TIUnitSystem DefaultUnit { get; }
-        TIUnitSystem SelectedUnit { get; }
-        TIUnitSystem Convert(TIUnitSystem from, TIUnitSystem to);
-    }
-
-
-
-
-
 }

@@ -27,6 +27,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppVerse.Jewel.StatusModule
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppVerse.Jewel.NavigationModule", "AppVerse.Jewel.NavigationModule\AppVerse.Jewel.NavigationModule.csproj", "{64745164-4D10-4121-B014-51060BFCACF7}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{1D54642B-838C-48B8-B18F-FA3D286C7AAD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppVerse.Jewel.Entities.Test", "AppVerse.Jewel.Entities.Test\AppVerse.Jewel.Entities.Test.csproj", "{AB30C48E-5956-4A9B-83BF-3028C9BAFA9D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +73,10 @@ Global
 		{64745164-4D10-4121-B014-51060BFCACF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{64745164-4D10-4121-B014-51060BFCACF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{64745164-4D10-4121-B014-51060BFCACF7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB30C48E-5956-4A9B-83BF-3028C9BAFA9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB30C48E-5956-4A9B-83BF-3028C9BAFA9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB30C48E-5956-4A9B-83BF-3028C9BAFA9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB30C48E-5956-4A9B-83BF-3028C9BAFA9D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -82,6 +90,7 @@ Global
 		{98A636BB-F2C9-4E06-B54F-DC5285D57688} = {5B7E22F8-3E2F-4224-AA66-EBCD99710E25}
 		{050C1F4C-299C-4843-A71B-ADE808C8C6CF} = {57609900-24AC-494C-91D2-5A0B2CF24322}
 		{64745164-4D10-4121-B014-51060BFCACF7} = {57609900-24AC-494C-91D2-5A0B2CF24322}
+		{AB30C48E-5956-4A9B-83BF-3028C9BAFA9D} = {1D54642B-838C-48B8-B18F-FA3D286C7AAD}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4DEA11C8-32E2-4CD6-9ABB-263D48716BA6}
