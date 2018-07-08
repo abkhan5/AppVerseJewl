@@ -88,7 +88,6 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="AppVerseBootstrapper.cs" />
-    <Compile Include="UnitType.cs" />
     <Compile Include="ViewModels\AppverseShellViewModel.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>

@@ -82,7 +82,7 @@
     <Compile Include="ViewModels\DepthFileViewModel.cs" />
     <Compile Include="ViewModels\FilePikcerViewModel.cs" />
     <Compile Include="ViewModels\HorizonShellViewModel.cs" />
-    <Compile Include="ViewModels\HorizonVolumeViewModel.cs" />
+    <Compile Include="ViewModels\HorizonViewModel.cs" />
     <Compile Include="ViewModels\LateralHorizonDimensionViewModel.cs" />
     <Compile Include="Views\DepthFileContentHeaderSectionView.xaml.cs">
       <DependentUpon>DepthFileContentHeaderSectionView.xaml</DependentUpon>
@@ -100,8 +100,8 @@
       <DependentUpon>HorizonShellView.xaml</DependentUpon>
     </Compile>
     <Compile Include="HorizonModule.cs" />
-    <Compile Include="Views\HorizonVolumeView.xaml.cs">
-      <DependentUpon>HorizonVolumeView.xaml</DependentUpon>
+    <Compile Include="Views\HorizonView.xaml.cs">
+      <DependentUpon>HorizonView.xaml</DependentUpon>
     </Compile>
     <Page Include="MappingDictionary.xaml">
       <SubType>Designer</SubType>
@@ -127,7 +127,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\HorizonVolumeView.xaml">
+    <Page Include="Views\HorizonView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

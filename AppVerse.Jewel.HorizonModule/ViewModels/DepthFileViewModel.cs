@@ -57,15 +57,15 @@ namespace AppVerse.Jewel.HorizonModule.ViewModels
 
         private void ExecuteShowOnCanvasCommand()
         {
-            SetNavigationItem();
+            AddNavigationItem();
             _navigation.ActivateItem(_navigationItem);
         }
 
-        private void SetNavigationItem()
+        private void AddNavigationItem()
         {
             if (_navigationItem != null)
                 return;
-            var volumeVm = _unityContainer.Resolve<HorizonVolumeViewModel>();
+            var volumeVm = _unityContainer.Resolve<HorizonViewModel>();
             volumeVm.Initialize(Model);
             _navigationItem = new NavigationItem
             {

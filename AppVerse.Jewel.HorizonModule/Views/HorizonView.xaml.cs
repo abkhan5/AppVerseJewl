@@ -18,9 +18,9 @@ namespace AppVerse.Jewel.HorizonModule.Views
     /// <summary>
     /// Interaction logic for HorizonVolumeView.xaml
     /// </summary>
-    public partial class HorizonVolumeView : UserControl
+    public partial class HorizonView
     {
-        public HorizonVolumeView()
+        public HorizonView()
         {
             InitializeComponent();
         }

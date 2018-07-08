@@ -4,7 +4,7 @@ namespace AppVerse.Jewel.Entities
 {
     public interface ITabDataModel
     {
-        void AddTabItem(TabItemDataModel tabItem);
+        void AddTabItem<T>(TabItemDataModel<T> tabItem) where T : BaseViewModel;
     }
 
 
@@ -13,7 +13,15 @@ namespace AppVerse.Jewel.Entities
         public string Title { get; set; }
 
         public string ToolTip { get; set; }
-
         public BaseViewModel ViewModel { get; set; }
+    }
+
+    public class TabItemDataModel<T> : TabItemDataModel where T : BaseViewModel
+    {
+        public  T TabItemViewModel
+        {
+            get => ViewModel as T;
+            set => ViewModel = value;
+        }
     }
 }
