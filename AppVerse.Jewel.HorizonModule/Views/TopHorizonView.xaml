@@ -11,14 +11,15 @@
             <ItemsControl ItemsSource="{Binding}" ItemTemplate="{DynamicResource UnitSystemReadOnlyTemplate}">
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
-                        <StackPanel Orientation="Horizontal"/>
+                        <VirtualizingStackPanel  Orientation="Horizontal"/>
                     </ItemsPanelTemplate>
                 </ItemsControl.ItemsPanel>
             </ItemsControl>
             </DataTemplate>
     </UserControl.Resources>
-    <ScrollViewer VerticalScrollBarVisibility="Auto" >
+    <ScrollViewer  VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" IsDeferredScrollingEnabled="True"  VirtualizingStackPanel.IsVirtualizing="True">
         <ItemsControl ItemsSource="{Binding Depth}" 
+                      VirtualizingStackPanel.IsVirtualizing="True"
                       ItemTemplate="{DynamicResource WrapPanelTemplate}"/>
     </ScrollViewer>
 </UserControl>

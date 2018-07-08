@@ -85,9 +85,6 @@
     </Compile>
     <Compile Include="Converter\DepthFileLoadStatusToBoolConverter.cs" />
     <Compile Include="DataGrid2D.cs" />
-    <Compile Include="DataGrid2DControl.xaml.cs">
-      <DependentUpon>DataGrid2DControl.xaml</DependentUpon>
-    </Compile>
     <Compile Include="HorizonFilePicker.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -128,10 +125,6 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="AppImageControl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="DataGrid2DControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

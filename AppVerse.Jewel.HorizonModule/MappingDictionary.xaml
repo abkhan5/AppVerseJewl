@@ -46,7 +46,7 @@
     </DataTemplate>
 
     <DataTemplate DataType="{x:Type models:LengthUnitSystem}" x:Key="UnitSystemReadOnlyTemplate" >
-        <Button Margin="10">
+        <Button Margin="10" >
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
@@ -60,7 +60,7 @@
     </DataTemplate>
 
 
-    <DataTemplate DataType="{x:Type models:LengthUnitSystem}" x:Key="UnitSystemEditTemplate" >
+    <DataTemplate DataType="{x:Type models:LengthUnitSystem}">
         <Button Margin="10">
             <Grid>
                 <Grid.ColumnDefinitions>
