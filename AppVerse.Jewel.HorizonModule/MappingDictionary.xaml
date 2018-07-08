@@ -9,6 +9,14 @@
 
 
 
+
+    <DataTemplate DataType="{x:Type viewModels:TopHorizonViewModel}">
+        <views:TopHorizonView />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type viewModels:BottomHorizonViewModel}">
+        <views:TopHorizonView />
+    </DataTemplate>
+
     <DataTemplate DataType="{x:Type viewModels:HorizonShellViewModel}">
         <views:HorizonShellView />
     </DataTemplate>

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.Linq;
 using AppVerse.Jewel.Core.ApplicationBase;
@@ -14,7 +15,7 @@ namespace AppVerse.Jewel.Entities
         public LengthUnitSystem()
         {
             QuantityType = QuantityType.Length;
-            _defaultUnit = _selectedUnit =  LengthUnit.Meter;
+            _defaultUnit = _selectedUnit =  LengthUnit.Foot;
             var supportedUnits = Enum.GetValues(typeof(LengthUnit)).Cast<LengthUnit>();
             SupportedUnits = new List<LengthUnit>(supportedUnits);
         }
@@ -56,5 +57,6 @@ namespace AppVerse.Jewel.Entities
         {
 
         }
+
     }
 }

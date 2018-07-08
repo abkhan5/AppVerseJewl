@@ -55,9 +55,9 @@
             <TextBlock Text="{Binding TotalVolume}" Grid.Column="5"/>
         </Grid>
 
-        <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Row="3">
-            <ItemsControl ItemsSource="{Binding Depth}" 
-                      ItemTemplate="{DynamicResource WrapPanelTemplate}"/>
-        </ScrollViewer>
+        <mah:MetroAnimatedSingleRowTabControl  Grid.Row="3">
+            <TabItem Header="Top Horizon" Content="{Binding TopHorizon}"/>
+            <TabItem Header="Bottom Horizon" Content="{Binding BottomHorizon}"/>
+        </mah:MetroAnimatedSingleRowTabControl>
     </Grid>
 </UserControl>

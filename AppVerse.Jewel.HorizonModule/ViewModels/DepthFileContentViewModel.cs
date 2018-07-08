@@ -1,47 +1,50 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AppVerse.Jewel.Core.ApplicationBase;
+﻿using AppVerse.Jewel.Core.ApplicationBase;
 using AppVerse.Jewel.Entities;
 using Microsoft.Practices.Unity;
 
 namespace AppVerse.Jewel.HorizonModule.ViewModels
 {
-    public  class DepthFileContentViewModel : BaseViewModel
+    public class DepthFileContentViewModel : BaseViewModel
     {
-        public DepthFileContentViewModel(IUnityContainer unityContainer) : base(unityContainer)
+        private TopHorizonViewModel _topHorizon;
+        private BottomHorizonViewModel _bottomHorizon;
+
+        public DepthFileContentViewModel(IUnityContainer unityContainer, TopHorizonViewModel topHorizon, BottomHorizonViewModel bottomHorizon) : base(unityContainer)
         {
+            _bottomHorizon = bottomHorizon;
+            _topHorizon = topHorizon;
         }
 
         protected override void Initialize()
         {
-            Depth= new List<List<LengthUnitSystem>>();
+         
         }
 
-        public DepthFile DepthFile{ get; set; }
-
+        
         public string ImagePath { get; set; }
         public string FileName { get; set; }
-        public List<List<LengthUnitSystem>> Depth { get; set; }
 
+        public TopHorizonViewModel TopHorizon
+        {
+            get => _topHorizon;
+            set => SetProperty(ref _topHorizon , value);
+        }
+
+        public BottomHorizonViewModel BottomHorizon
+        {
+            get => _bottomHorizon;
+            set => SetProperty(ref _bottomHorizon, value);
+        }
+        
         public string TotalVolume { get; set; }
 
         public void Initialize(DepthFile depth)
         {
-            DepthFile = depth;
+            TopHorizon.Initialize(depth);
+            BottomHorizon.Initialize(depth);
             ImagePath = depth.Format.GetImageDescription();
-            var depthChart = depth.TopHorizon.Depth;
             FileName = depth.FileName;
             TotalVolume = depth.Volume;
-            for (int row = 0; row < 26; row++)
-            {
-                var rowList= new List<LengthUnitSystem>();
-                for (int column = 0; column < 16; column++)
-                    rowList.Add(depthChart[column][row]);
-                Depth.Add(rowList);
-            }
         }
     }
 }
