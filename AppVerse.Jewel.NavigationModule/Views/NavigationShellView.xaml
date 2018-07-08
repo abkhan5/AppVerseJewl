@@ -84,16 +84,18 @@
                            Text="Jewel Suite" />
             </DataTemplate>
         </mah:HamburgerMenu.HamburgerMenuHeaderTemplate>
-        
+
 
         <mah:HamburgerMenu.ContentTemplate>
             <DataTemplate>
-                <mah:TransitioningContentControl VerticalContentAlignment="Stretch"
-                                                 HorizontalContentAlignment="Stretch"
-                                                 RestartTransitionOnContentChange="True"
-                                                 Content="{Binding }"
-                                                 Transition="Default">
-                </mah:TransitioningContentControl>
+                <mah:TransitioningContentControl
+                    mah:ScrollViewerHelper.IsHorizontalScrollWheelEnabled="True"
+                    mah:ScrollViewerHelper.VerticalScrollBarOnLeftSide="True"
+                    VerticalContentAlignment="Stretch"
+                    HorizontalContentAlignment="Stretch"
+                    RestartTransitionOnContentChange="True"
+                    Content="{Binding }"
+                    Transition="Default" />
 
             </DataTemplate>
         </mah:HamburgerMenu.ContentTemplate>

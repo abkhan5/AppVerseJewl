@@ -35,11 +35,11 @@ namespace AppVerse.Jewel.HorizonModule.ViewModels
             var depthChart = depth.TopHorizon.Depth;
             FileName = depth.FileName;
             TotalVolume = depth.Volume;
-            for (int row = 0; row < 16; row++)
+            for (int row = 0; row < 26; row++)
             {
                 var rowList= new List<LengthUnitSystem>();
-                for (int column = 0; column < 26; column++)
-                    rowList.Add(depthChart[row][column]);
+                for (int column = 0; column < 16; column++)
+                    rowList.Add(depthChart[column][row]);
                 Depth.Add(rowList);
             }
         }

@@ -101,6 +101,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="NavigationItem.cs" />
+    <Compile Include="TabDataModel.cs" />
     <Compile Include="Unit.cs" />
     <Compile Include="VolumeUnit.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">

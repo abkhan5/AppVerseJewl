@@ -77,19 +77,24 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ViewModels\DepthFileContentHeaderSectionViewModel.cs" />
     <Compile Include="ViewModels\DepthFileContentViewModel.cs" />
     <Compile Include="ViewModels\DepthFileViewModel.cs" />
-    <Compile Include="ViewModels\HorizonFilePikcerViewModel.cs" />
+    <Compile Include="ViewModels\FilePikcerViewModel.cs" />
     <Compile Include="ViewModels\HorizonShellViewModel.cs" />
     <Compile Include="ViewModels\HorizonVolumeViewModel.cs" />
+    <Compile Include="ViewModels\LateralHorizonDimensionViewModel.cs" />
+    <Compile Include="Views\DepthFileContentHeaderSectionView.xaml.cs">
+      <DependentUpon>DepthFileContentHeaderSectionView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\DepthFileContentView.xaml.cs">
       <DependentUpon>DepthFileContentView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\DepthFileView.xaml.cs">
       <DependentUpon>DepthFileView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\HorizonFilePikcerView.xaml.cs">
-      <DependentUpon>HorizonFilePikcerView.xaml</DependentUpon>
+    <Compile Include="Views\FilePikcerView.xaml.cs">
+      <DependentUpon>FilePikcerView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\HorizonShellView.xaml.cs">
       <DependentUpon>HorizonShellView.xaml</DependentUpon>
@@ -102,6 +107,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\DepthFileContentHeaderSectionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\DepthFileContentView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -110,7 +119,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\HorizonFilePikcerView.xaml">
+    <Page Include="Views\FilePikcerView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

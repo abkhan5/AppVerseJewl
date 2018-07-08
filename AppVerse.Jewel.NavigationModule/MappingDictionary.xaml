@@ -2,10 +2,22 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:AppVerse.Jewel.NavigationModule"
                     xmlns:views="clr-namespace:AppVerse.Jewel.NavigationModule.Views"
-                    xmlns:viewModels="clr-namespace:AppVerse.Jewel.NavigationModule.ViewModels">
+                    xmlns:viewModels="clr-namespace:AppVerse.Jewel.NavigationModule.ViewModels"
+                    xmlns:model="clr-namespace:AppVerse.Jewel.Entities;assembly=AppVerse.Jewel.Entities">
 
     <DataTemplate DataType="{x:Type viewModels:NavigationShellViewModel}">
         <views:NavigationShellView />
     </DataTemplate>
+
+
+    <DataTemplate DataType="{x:Type viewModels:TabControlShellViewModel}">
+        <views:TabControlShellView />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type model:TabItemDataModel}">
+        <TabItem Header="{Binding Title}" Content="{Binding ViewModel}"/>
+    </DataTemplate>
+
+
 
 </ResourceDictionary>

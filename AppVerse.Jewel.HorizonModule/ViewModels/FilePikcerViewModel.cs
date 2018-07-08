@@ -13,14 +13,14 @@ using Prism.Commands;
 
 namespace AppVerse.Jewel.HorizonModule.ViewModels
 {
-    public class HorizonFilePikcerViewModel : BaseViewModel
+    public class FilePikcerViewModel : BaseViewModel
     {
         private readonly IFilePicker _filePicker;
         private readonly INavigation _navigation;
 
         private bool _isFileLoading;
 
-        public HorizonFilePikcerViewModel(
+        public FilePikcerViewModel(
             IUnityContainer unityContainer, 
             IFilePicker filePicker,
             INavigation navigation

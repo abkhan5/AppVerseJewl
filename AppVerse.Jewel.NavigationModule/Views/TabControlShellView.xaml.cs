@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace AppVerse.Jewel.HorizonModule.Views
+namespace AppVerse.Jewel.NavigationModule.Views
 {
     /// <summary>
-    /// Interaction logic for HorizonFilePikcerView.xaml
+    /// Interaction logic for TabControlShellView.xaml
     /// </summary>
-    public partial class HorizonFilePikcerView : UserControl
+    public partial class TabControlShellView 
     {
-        public HorizonFilePikcerView()
+        public TabControlShellView()
         {
             InitializeComponent();
         }

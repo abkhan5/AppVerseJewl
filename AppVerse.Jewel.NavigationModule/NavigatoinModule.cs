@@ -1,24 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using AppVerse.Jewel.Contract;
 using AppVerse.Jewel.Core;
 using AppVerse.Jewel.Core.ApplicationBase;
+using AppVerse.Jewel.Entities;
 using AppVerse.Jewel.NavigationModule.ViewModels;
-using AppVerse.Jewel.NavigationModule.Views;
 using Microsoft.Practices.Unity;
 using Prism.Regions;
+using Extensions = AppVerse.Jewel.Core.Extensions;
 
 namespace AppVerse.Jewel.NavigationModule
 {
-   public  class NavigatoinModule : BaseModule
+    public class NavigatoinModule : BaseModule
     {
-        readonly List<string> _resources = new List<string>
+        private readonly List<string> _resources = new List<string>
         {
-            "pack://application:,,,/AppVerse.Jewel.NavigationModule;component/MappingDictionary.xaml",
+            "pack://application:,,,/AppVerse.Jewel.NavigationModule;component/MappingDictionary.xaml"
         };
+
         public NavigatoinModule(IUnityContainer unityContainer, IRegionManager regionManager) : base(unityContainer,
             regionManager)
         {
@@ -27,8 +25,11 @@ namespace AppVerse.Jewel.NavigationModule
 
         private void Register()
         {
-            _unityContainer.RegisterType<INavigation, NavigationShellViewModel>(new ContainerControlledLifetimeManager());
+            _unityContainer.RegisterType<INavigation, NavigationShellViewModel>(
+                new ContainerControlledLifetimeManager());
+            _unityContainer.RegisterType<ITabDataModel, TabControlShellViewModel>();
         }
+
         protected override void RegisterResources()
         {
             Extensions.RegisterResources(_resources);
