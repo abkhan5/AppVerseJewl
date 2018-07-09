@@ -8,7 +8,8 @@
         public const string CsvExtension= "CSV (*.csv)|*.csv";
         public const string ExcelExtension = "Excel (*.xls;*.xlsx)|*.xls;*.xlsx";
         public const string AllFileExtension = "All files (*.*)|*.*";
-
+        public const string SelectedValueCanNotBeEmpty = "Selected Value Can NotBe Empty";
+        public const string SelectedUnitCanNotBeUndefined= "Selected unit can not be undefined";
         public const string UndefinedVolume = "Select Volume";
         public const string UndefinedLength= "Select Length";
     }
