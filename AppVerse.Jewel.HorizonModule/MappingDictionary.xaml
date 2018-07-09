@@ -102,6 +102,7 @@
                                    NumericInputMode="Decimal" 
                                    InterceptArrowKeys="True" 
                                    InterceptMouseWheel="True" 
+                                   StringFormat="N4"
                                    Grid.Column="3" />
                 <ComboBox Grid.Column="5" 
                           ItemsSource="{Binding SupportedUnits}"  
