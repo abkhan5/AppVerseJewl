@@ -22,41 +22,18 @@
                 </ItemsControl.ItemsPanel>
             </ItemsControl>
         </DataTemplate>
-
     </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="10"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="10"/>
-            <RowDefinition Height="10*"/>
-            <RowDefinition Height="10"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <Grid Grid.Row="1" RenderTransformOrigin="0.5,0.5">
-            <Grid.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="-0.274"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Grid.RenderTransform>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="5"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="5"/>
-                <ColumnDefinition Width="2*"/>
-                <ColumnDefinition Width="10"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="10"/>
-            </Grid.ColumnDefinitions>
-            <TextBlock Text="{Binding FileName}" Grid.Column="3"/>
-            <controls:AppImageControl  ImagePath="{Binding ImagePath}" Grid.Column="1"/>
-            <TextBlock Text="{Binding TotalVolume}" Grid.Column="5"/>
-        </Grid>
-
+        <ContentControl  Grid.Row="1" Content="{Binding Header}"/>
+        
         <mah:MetroAnimatedSingleRowTabControl  Grid.Row="3">
-            <TabItem Header="Top Horizon" Content="{Binding TopHorizon}"/>
+            <TabItem Header="Top Horizon" Content="{Binding TopHorizon}" />
             <TabItem Header="Bottom Horizon" Content="{Binding BottomHorizon}"/>
         </mah:MetroAnimatedSingleRowTabControl>
     </Grid>

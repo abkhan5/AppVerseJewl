@@ -10,10 +10,13 @@
 
 
 
+    <DataTemplate DataType="{x:Type viewModels:DepthFileContentHeaderSectionViewModel}">
+        <views:DepthFileContentHeaderSectionView />
+    </DataTemplate>
     <DataTemplate DataType="{x:Type viewModels:HorizonFileContentViewModel}">
         <views:HorizonFileContentView />
     </DataTemplate>
-
+    
     <DataTemplate DataType="{x:Type viewModels:HorizonShellViewModel}">
         <views:HorizonShellView />
     </DataTemplate>
@@ -35,7 +38,7 @@
         <views:HorizonView />
     </DataTemplate>
 
-    <converter:DepthFileLoadStatusToBoolConverter x:Key="DepthFileLoadStatusToBoolConverter" />
+    
 
 
     <DataTemplate DataType="{x:Type models:AppProgress}">
@@ -71,5 +74,23 @@
         </Button>
     </DataTemplate>
 
+    <converter:VolumeEnumToStringConverter x:Key="VolumeEnumToStringConverter"/>
+
+    <DataTemplate DataType="{x:Type models:VolumeUnitSystem}">
+        <Button>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="5" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="{Binding SelectedValue}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="0" />
+                <ComboBox Grid.Column="2" 
+                          ItemsSource="{Binding SupportedUnits}"  
+                          SelectedItem="{Binding  SelectedUnit}"/>
+            </Grid>
+        </Button>
+    </DataTemplate>
+    
 
 </ResourceDictionary>

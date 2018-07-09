@@ -18,7 +18,7 @@ namespace AppVerse.Jewel.HorizonModule.Views
     /// <summary>
     /// Interaction logic for DepthFileContentHeaderSectionView.xaml
     /// </summary>
-    public partial class DepthFileContentHeaderSectionView : UserControl
+    public partial class DepthFileContentHeaderSectionView 
     {
         public DepthFileContentHeaderSectionView()
         {

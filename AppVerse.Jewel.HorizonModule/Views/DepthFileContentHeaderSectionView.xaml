@@ -1,12 +1,25 @@
-﻿<UserControl x:Class="AppVerse.Jewel.HorizonModule.Views.DepthFileContentHeaderSectionView"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:AppVerse.Jewel.HorizonModule.Views"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+﻿<Border x:Class="AppVerse.Jewel.HorizonModule.Views.DepthFileContentHeaderSectionView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:controls="clr-namespace:AppVerse.Jewel.Controls;assembly=AppVerse.Jewel.Controls"
+        mc:Ignorable="d"
+        BorderBrush="{DynamicResource GrayBrush1}"
+
+        BorderThickness="3"
+        d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="5" />
+            <ColumnDefinition Width="3*" />
             
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0"  Orientation="Horizontal">
+        <controls:AppImageControl Margin="10,0,0,0"  HorizontalAlignment="Left" ImagePath="{Binding ImagePath}" />
+        <TextBlock Text="{Binding FileName}" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0"  />
+        </StackPanel>
+        <ContentControl Content="{Binding TotalVolume}" Grid.Column="2" HorizontalAlignment="Left"  VerticalAlignment="Center" />
     </Grid>
-</UserControl>
+</Border>

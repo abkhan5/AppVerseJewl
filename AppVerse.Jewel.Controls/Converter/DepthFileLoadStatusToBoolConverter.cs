@@ -5,18 +5,16 @@ using AppVerse.Jewel.Entities;
 
 namespace AppVerse.Jewel.Controls.Converter
 {
-    public class DepthFileLoadStatusToBoolConverter : IValueConverter
+    public class VolumeEnumToStringConverter : IValueConverter
 
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if (value is DepthFile depthFile)
-                return depthFile.FileLoadProgress.Progress == depthFile.FileLoadProgress.Max;
-
-            if (value is AppProgress prog)
-                return prog.Progress == prog.Max;
-
-            return value!=null;
+            if (value is VolumeUnit volumeUnit)
+            {
+                return volumeUnit.GetDescription();
+            }
+            return value;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

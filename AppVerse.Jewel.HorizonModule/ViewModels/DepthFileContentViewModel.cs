@@ -8,11 +8,16 @@ namespace AppVerse.Jewel.HorizonModule.ViewModels
     {
         private HorizonFileContentViewModel _topHorizon;
         private HorizonFileContentViewModel _bottomHorizon;
+        private DepthFileContentHeaderSectionViewModel _header;
 
-        public DepthFileContentViewModel(IUnityContainer unityContainer, HorizonFileContentViewModel topHorizon, HorizonFileContentViewModel bottomHorizon) : base(unityContainer)
+        public DepthFileContentViewModel(IUnityContainer unityContainer, 
+            HorizonFileContentViewModel topHorizon,
+            DepthFileContentHeaderSectionViewModel header,
+            HorizonFileContentViewModel bottomHorizon) : base(unityContainer)
         {
             _bottomHorizon = bottomHorizon;
             _topHorizon = topHorizon;
+            _header = header;
         }
 
         protected override void Initialize()
@@ -20,9 +25,11 @@ namespace AppVerse.Jewel.HorizonModule.ViewModels
          
         }
 
-        
-        public string ImagePath { get; set; }
-        public string FileName { get; set; }
+        public DepthFileContentHeaderSectionViewModel Header
+        {
+            get => _header;
+            set => SetProperty(ref _header , value);
+        }
 
         public HorizonFileContentViewModel TopHorizon
         {
@@ -36,16 +43,15 @@ namespace AppVerse.Jewel.HorizonModule.ViewModels
             set => SetProperty(ref _bottomHorizon, value);
         }
         
-        public string TotalVolume { get; set; }
-
+     
         public void Initialize(DepthFile depth)
         {
             depth.Reservoir.CalculateVolume();
+            _header.Initialize(depth);
             TopHorizon.Initialize(depth.Reservoir.TopHorizon.Depth);
             BottomHorizon.Initialize(depth.Reservoir.BottomHorizon.Depth);
-            ImagePath = depth.Format.GetImageDescription();
-            FileName = depth.FileName;
-            TotalVolume = depth.Volume;
+          
+          
         }
     }
 }
