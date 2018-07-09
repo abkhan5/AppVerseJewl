@@ -5,29 +5,29 @@ using AppVerse.Jewel.Core.ApplicationBase;
 
 namespace AppVerse.Jewel.Entities
 {
-    public abstract class UnitSystemBase<T> : UnitSystemBase
+    public abstract class UnitSystemBase<TUnitEnum> : UnitSystemBase
     {
-        private  T _selectedUnit;
+        private  TUnitEnum _selectedUnit;
 
-        protected UnitSystemBase(T defualtUnit, double defaultValue, QuantityType quantityType, UnitConverterBase<T> converter) : base(defaultValue, quantityType)
+        protected UnitSystemBase(TUnitEnum defualtUnit, double defaultValue, QuantityType quantityType, UnitConverterBase<TUnitEnum> converter) : base(defaultValue, quantityType)
         {
             Converter = converter;
             
-            var supportedUnits = Enum.GetValues(typeof(T)).Cast<T>();
+            var supportedUnits = Enum.GetValues(typeof(TUnitEnum)).Cast<TUnitEnum>();
             DefaultUnit = _selectedUnit = defualtUnit;
-            SupportedUnits = new List<T>(supportedUnits);
+            SupportedUnits = new List<TUnitEnum>(supportedUnits);
             _unSupportedUnit = SupportedUnits.ElementAt(0);
         }
 
-        private readonly T _unSupportedUnit;
+        private readonly TUnitEnum _unSupportedUnit;
 
-        public UnitConverterBase<T> Converter { get;  }
-        public IList<T> SupportedUnits { get; }
+        public UnitConverterBase<TUnitEnum> Converter { get;  }
+        public IList<TUnitEnum> SupportedUnits { get; }
 
-        public T DefaultUnit { get; }
+        public TUnitEnum DefaultUnit { get; }
 
 
-        public T SelectedUnit
+        public TUnitEnum SelectedUnit
         {
             get => _selectedUnit;
             set
