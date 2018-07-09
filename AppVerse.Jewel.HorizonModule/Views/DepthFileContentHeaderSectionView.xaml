@@ -17,8 +17,13 @@
             
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Column="0"  Orientation="Horizontal">
-        <controls:AppImageControl Margin="10,0,0,0"  HorizontalAlignment="Left" ImagePath="{Binding ImagePath}" />
-        <TextBlock Text="{Binding FileName}" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0"  />
+            <TextBlock Text="FileName:" 
+                       HorizontalAlignment="Center" 
+                       VerticalAlignment="Center"
+                       FontWeight="Bold"
+                       FontSize="14"  />
+        <controls:AppImageControl Margin="0,0,0,0"  HorizontalAlignment="Left" ImagePath="{Binding ImagePath}" />
+            <TextBlock FontSize="12"  Text="{Binding FileName}" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0"  />
         </StackPanel>
         <ContentControl Content="{Binding TotalVolume}" Grid.Column="2" HorizontalAlignment="Left"  VerticalAlignment="Center" />
     </Grid>

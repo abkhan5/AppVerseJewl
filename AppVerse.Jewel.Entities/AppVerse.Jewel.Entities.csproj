@@ -37,6 +37,7 @@
     <Reference Include="MahApps.Metro, Version=1.6.5.1, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MahApps.Metro.1.6.5\lib\net47\MahApps.Metro.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.JScript" />
     <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
     </Reference>
@@ -82,12 +83,11 @@
     <Compile Include="Extensions.cs" />
     <Compile Include="FileFormat.cs" />
     <Compile Include="Horizon.cs" />
+    <Compile Include="LengthUnitConverter.cs" />
     <Compile Include="Reservoir.cs" />
     <Compile Include="IUnit.cs" />
-    <Compile Include="IUnitSystem.cs" />
-    <Compile Include="LateralDimensions.cs" />
+    <Compile Include="IUnitConversionSystem.cs" />
     <Compile Include="LengthUnitSystem.cs" />
-    <Compile Include="MeasurementUnits.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -104,8 +104,10 @@
     <Compile Include="NavigationItem.cs" />
     <Compile Include="TabDataModel.cs" />
     <Compile Include="Unit.cs" />
+    <Compile Include="UnitConverterBase.cs" />
     <Compile Include="UnitSystemBase.cs" />
     <Compile Include="VolumeUnit.cs" />
+    <Compile Include="VolumeUnitConverter.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

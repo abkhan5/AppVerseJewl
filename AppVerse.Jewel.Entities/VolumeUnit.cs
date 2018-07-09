@@ -8,11 +8,11 @@ namespace AppVerse.Jewel.Entities
     {
         [Description(Constants.UndefinedVolume)]
         Undefined = 0,
-        [Description(Constants.CubicMeter)]
+        [Description(UnitConstant.CubicMeter)]
         CubicMeter,
-        [Description(Constants.CubicFoot)]
+        [Description(UnitConstant.CubicFoot)]
         CubicFoot,
-        [Description(Constants.OilBarrel)]
+        [Description(UnitConstant.OilBarrel)]
         OilBarrel,
     }
 
@@ -20,9 +20,9 @@ namespace AppVerse.Jewel.Entities
     {
         [Description(Constants.UndefinedLength)]
         Undefined = 0,
-        [Description(Constants.Meter)]
+        [Description(UnitConstant.Meter)]
         Meter,
-        [Description(Constants.Foot)]
+        [Description(UnitConstant.Foot)]
         Foot,
     }
 
