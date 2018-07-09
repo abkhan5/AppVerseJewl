@@ -1,41 +1,18 @@
-﻿using System;
-using System.CodeDom;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace AppVerse.Jewel.Entities
+﻿namespace AppVerse.Jewel.Entities
 {
-    public class LengthUnitSystem: UnitSystemBase
+    public class LengthUnitSystem : UnitSystemBase<LengthUnit>
     {
-        private LengthUnit _selectedUnit;
-        private readonly LengthUnit _defaultUnit;
-
-        public LengthUnitSystem(double defaultValue=0) :base(defaultValue, QuantityType.Length)
+        public LengthUnitSystem(double defaultValue = 0) : base(defaultValue, QuantityType.Length)
         {
-            _defaultUnit = _selectedUnit =  LengthUnit.Foot;
-            var supportedUnits = Enum.GetValues(typeof(LengthUnit)).Cast<LengthUnit>();
-            SupportedUnits = new List<LengthUnit>(supportedUnits);
+            _defaultUnit = _selectedUnit = LengthUnit.Foot;
         }
+    }
 
-
-        public IList<LengthUnit> SupportedUnits { get;  }
-
-
-        public LengthUnit DefaultUnit => _defaultUnit;
-
-        
-
-        public LengthUnit SelectedUnit
+    public class VolumeUnitSystem : UnitSystemBase<VolumeUnit>
+    {
+        public VolumeUnitSystem(double defaultValue = 0) : base(defaultValue, QuantityType.Volume)
         {
-            get => _selectedUnit;
-            set
-            {
-                SetProperty(ref _selectedUnit , value);
-                Convert();
-            }
+            _defaultUnit = _selectedUnit = VolumeUnit.CubicFoot;
         }
-
-     
-
     }
 }

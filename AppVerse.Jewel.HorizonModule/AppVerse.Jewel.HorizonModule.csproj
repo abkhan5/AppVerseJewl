@@ -77,14 +77,13 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ViewModels\BottomHorizonViewModel.cs" />
     <Compile Include="ViewModels\DepthFileContentHeaderSectionViewModel.cs" />
     <Compile Include="ViewModels\DepthFileContentViewModel.cs" />
     <Compile Include="ViewModels\DepthFileViewModel.cs" />
     <Compile Include="ViewModels\FilePikcerViewModel.cs" />
     <Compile Include="ViewModels\HorizonShellViewModel.cs" />
     <Compile Include="ViewModels\HorizonViewModel.cs" />
-    <Compile Include="ViewModels\TopHorizonViewModel.cs" />
+    <Compile Include="ViewModels\HorizonFileContentViewModel.cs" />
     <Compile Include="Views\DepthFileContentHeaderSectionView.xaml.cs">
       <DependentUpon>DepthFileContentHeaderSectionView.xaml</DependentUpon>
     </Compile>
@@ -104,8 +103,8 @@
     <Compile Include="Views\HorizonView.xaml.cs">
       <DependentUpon>HorizonView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\TopHorizonView.xaml.cs">
-      <DependentUpon>TopHorizonView.xaml</DependentUpon>
+    <Compile Include="Views\HorizonFileContentView.xaml.cs">
+      <DependentUpon>HorizonFileContentView.xaml</DependentUpon>
     </Compile>
     <Page Include="MappingDictionary.xaml">
       <SubType>Designer</SubType>
@@ -135,7 +134,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\TopHorizonView.xaml">
+    <Page Include="Views\HorizonFileContentView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

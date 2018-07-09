@@ -18,9 +18,9 @@ namespace AppVerse.Jewel.HorizonModule.Views
     /// <summary>
     /// Interaction logic for TopHorizonView.xaml
     /// </summary>
-    public partial class TopHorizonView : UserControl
+    public partial class HorizonFileContentView
     {
-        public TopHorizonView()
+        public HorizonFileContentView()
         {
             InitializeComponent();
         }

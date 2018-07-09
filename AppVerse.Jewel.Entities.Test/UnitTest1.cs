@@ -11,4 +11,16 @@ namespace AppVerse.Jewel.Entities.Test
         {
         }
     }
+
+
+    [TestClass]
+    [DeploymentItem("depthvalues.csv")]
+    public class VolumeTest
+    {
+        [TestMethod]
+        public void CalculateVolumeTestMethod()
+        {
+
+        }
+    }
 }

@@ -6,10 +6,10 @@ namespace AppVerse.Jewel.HorizonModule.ViewModels
 {
     public class DepthFileContentViewModel : BaseViewModel
     {
-        private TopHorizonViewModel _topHorizon;
-        private BottomHorizonViewModel _bottomHorizon;
+        private HorizonFileContentViewModel _topHorizon;
+        private HorizonFileContentViewModel _bottomHorizon;
 
-        public DepthFileContentViewModel(IUnityContainer unityContainer, TopHorizonViewModel topHorizon, BottomHorizonViewModel bottomHorizon) : base(unityContainer)
+        public DepthFileContentViewModel(IUnityContainer unityContainer, HorizonFileContentViewModel topHorizon, HorizonFileContentViewModel bottomHorizon) : base(unityContainer)
         {
             _bottomHorizon = bottomHorizon;
             _topHorizon = topHorizon;
@@ -24,13 +24,13 @@ namespace AppVerse.Jewel.HorizonModule.ViewModels
         public string ImagePath { get; set; }
         public string FileName { get; set; }
 
-        public TopHorizonViewModel TopHorizon
+        public HorizonFileContentViewModel TopHorizon
         {
             get => _topHorizon;
             set => SetProperty(ref _topHorizon , value);
         }
 
-        public BottomHorizonViewModel BottomHorizon
+        public HorizonFileContentViewModel BottomHorizon
         {
             get => _bottomHorizon;
             set => SetProperty(ref _bottomHorizon, value);
@@ -40,8 +40,9 @@ namespace AppVerse.Jewel.HorizonModule.ViewModels
 
         public void Initialize(DepthFile depth)
         {
-            TopHorizon.Initialize(depth);
-            BottomHorizon.Initialize(depth);
+            depth.Reservoir.CalculateVolume();
+            TopHorizon.Initialize(depth.Reservoir.TopHorizon.Depth);
+            BottomHorizon.Initialize(depth.Reservoir.BottomHorizon.Depth);
             ImagePath = depth.Format.GetImageDescription();
             FileName = depth.FileName;
             TotalVolume = depth.Volume;

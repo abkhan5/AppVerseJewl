@@ -1,9 +1,41 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using AppVerse.Jewel.Core.ApplicationBase;
 
 namespace AppVerse.Jewel.Entities
 {
+    public class UnitSystemBase<T> : UnitSystemBase
+    {
+        protected T _selectedUnit;
+        protected T _defaultUnit;
+
+        protected UnitSystemBase(double defaultValue, QuantityType quantityType) : base(defaultValue, quantityType)
+        {
+
+            var supportedUnits = Enum.GetValues(typeof(T)).Cast<T>();
+            SupportedUnits = new List<T>(supportedUnits);
+        }
+
+
+        public IList<T> SupportedUnits { get; }
+
+
+        public T DefaultUnit => _defaultUnit;
+
+
+
+        public T SelectedUnit
+        {
+            get => _selectedUnit;
+            set
+            {
+                SetProperty(ref _selectedUnit, value);
+                Convert();
+            }
+        }
+    }
+
     public class UnitSystemBase : DataModelBase
     {
         

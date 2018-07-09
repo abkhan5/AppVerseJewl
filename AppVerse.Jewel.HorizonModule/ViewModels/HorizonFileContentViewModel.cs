@@ -5,9 +5,9 @@ using Microsoft.Practices.Unity;
 
 namespace AppVerse.Jewel.HorizonModule.ViewModels
 {
-    public class TopHorizonViewModel : BaseViewModel
+    public class HorizonFileContentViewModel : BaseViewModel
     {
-        public TopHorizonViewModel(IUnityContainer unityContainer) : base(unityContainer)
+        public HorizonFileContentViewModel(IUnityContainer unityContainer) : base(unityContainer)
         {
 
         }
@@ -16,14 +16,10 @@ namespace AppVerse.Jewel.HorizonModule.ViewModels
         {
             Depth = new List<List<LengthUnitSystem>>();
         }
-
-
         public List<List<LengthUnitSystem>> Depth { get; set; }
-        public void Initialize(DepthFile depth)
+
+        public void Initialize(LengthUnitSystem[][] depthChart)
         {
-            
-            var depthChart = depth.TopHorizon.Depth;
-         
             for (int row = 0; row < 26; row++)
             {
                 var rowList = new List<LengthUnitSystem>();

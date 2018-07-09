@@ -82,7 +82,7 @@
     <Compile Include="Extensions.cs" />
     <Compile Include="FileFormat.cs" />
     <Compile Include="Horizon.cs" />
-    <Compile Include="HorizonVolume.cs" />
+    <Compile Include="Reservoir.cs" />
     <Compile Include="IUnit.cs" />
     <Compile Include="IUnitSystem.cs" />
     <Compile Include="LateralDimensions.cs" />

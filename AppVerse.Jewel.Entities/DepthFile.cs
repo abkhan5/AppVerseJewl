@@ -2,6 +2,8 @@
 {
     public class DepthFile
     {
+        private  Reservoir _reservoir;
+
         public DepthFile(string filePath, string fileName,  FileFormat fileFormat)
         {
             FileLoadProgress= new AppProgress();
@@ -24,5 +26,6 @@
         public Horizon TopHorizon { get; set; }
 
 
+        public Reservoir Reservoir => _reservoir??(_reservoir= new Reservoir(TopHorizon));
     }
 }

@@ -44,9 +44,4 @@ namespace AppVerse.Jewel.Entities
         T SelectedUnit { get; }
     }
 
-
-    public class VolumeUnitSystem
-    {
-
-    }
 }
