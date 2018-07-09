@@ -12,15 +12,6 @@ namespace AppVerse.Jewel.Entities
             Mapper[LengthUnit.Meter][LengthUnit.Foot] = new UnitConversionSystem(1/3.2808, 0);
         }
 
-        public double Convert<T>(T from,T to )where T : LengthUnitSystem
-        {
-            if (from.SelectedUnit==to.SelectedUnit)
-            {
-                return from.SelectedValue;
-            }
-
-            var result = Mapper[from.SelectedUnit][to.SelectedUnit].Convert(from.SelectedValue);
-            return result;
-        }
+        
     }
 }

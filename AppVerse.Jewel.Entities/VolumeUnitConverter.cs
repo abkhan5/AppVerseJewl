@@ -18,13 +18,6 @@ namespace AppVerse.Jewel.Entities
             Mapper[VolumeUnit.OilBarrel][VolumeUnit.CubicFoot] = new UnitConversionSystem(0.17811, 0);
             Mapper[VolumeUnit.OilBarrel][VolumeUnit.CubicMeter] = new UnitConversionSystem(1/6.2898, 0);
         }
-
-        public double Convert<T>(T from, T to) where T : VolumeUnitSystem
-        {
-            if (from.SelectedUnit == to.SelectedUnit) return from.SelectedValue;
-
-            var result = Mapper[from.SelectedUnit][to.SelectedUnit].Convert(from.SelectedValue);
-            return result;
-        }
+        
     }
 }
